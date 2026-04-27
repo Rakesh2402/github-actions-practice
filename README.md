@@ -1,1 +1,1 @@
-This is fopr practice of github actions
+This is for practice of github actions
