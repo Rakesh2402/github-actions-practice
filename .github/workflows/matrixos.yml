@@ -1,4 +1,4 @@
-name: python matrix build #Each job installs Python and prints the version
+name: python os matrix build #Each job installs Python and prints the version
 on:
     push:
         branches: [main]
