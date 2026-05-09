@@ -17,7 +17,7 @@ jobs:
             - name: prints current user
               run: whoami
 
-    windows-job:
+    windows-job:                                                 # code here is written in 2 differnt ways
         runs-on: windows-latest
         steps:
             - name: Print Windows info
