@@ -2,7 +2,7 @@ name: ubuntu preinstalled tool info
 
 on:
   push:
-    branches:[main] 
+    branches: [main] 
 
 
 jobs:
