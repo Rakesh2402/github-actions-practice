@@ -10,3 +10,9 @@ jobs:
         steps:
             - name: prints os name
               run: echo "The OS is ${{ runner.os }}"
+
+            - name: prits runners hostname
+              run: hostname
+              
+            - name: prints current user
+              run: whoami
