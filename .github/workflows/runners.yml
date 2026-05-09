@@ -16,3 +16,12 @@ jobs:
               
             - name: prints current user
               run: whoami
+
+    windows-job:
+        runs-on: windows-latest
+        steps:
+            - name: Print Windows info
+              run: |
+                echo "OS: Windows"
+                echo "Hostname: $env:COMPUTERNAME"
+                echo "User: $env:USERNAME"
