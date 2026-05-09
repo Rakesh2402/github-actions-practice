@@ -1,0 +1,23 @@
+name: self-hosted runner
+on:
+    push:
+        branches: [main]
+
+jobs:
+    self-hosted-job:
+        runs-on: self-hosted
+
+        steps:
+            - name: Print hostname
+              run: 'echo "Hostname: $(hostname)"'
+
+            - name: Print working directory
+              run: pwd
+
+            - name: Create test file
+              run: echo "Test file created" > /tmp/test-file.txt
+
+            - name: Verify file exists
+              run: cat /tmp/test-file.txt
+
+
