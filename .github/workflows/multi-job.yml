@@ -22,5 +22,5 @@ jobs:
         needs: [test]
         steps:
             - name: Deploy
-              run: echo" Deploying"
+              run: echo " Deploying"
 
