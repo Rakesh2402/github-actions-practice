@@ -1,0 +1,29 @@
+name: conditional-demo
+on:
+    workflow_dispatch
+
+jobs:
+    conditional-job:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: only on main
+              if: github.ref == 'refs/heads/main'
+              run: echo "This runs only on the main branch."
+
+            - name: only runs when previous step is failed
+              if: failure()
+              run: echo " Previous step failed "
+
+    on-push:
+        if: github.event_name == 'push'
+        runs-on: ubuntu-latest
+        steps:
+            - name: Run on push event
+              run: echo "This job runs on push events only."
+
+            - name: step with continue-on-error
+              run: |
+               echo "This step will fail"
+               exit 1
+        continue-on-error: true
