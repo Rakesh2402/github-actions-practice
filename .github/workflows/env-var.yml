@@ -1,0 +1,30 @@
+name: env-var
+on:
+    workflow_dispatch:
+
+
+env:
+    APP_NAME: myapp
+
+jobs:
+  env-vars:
+    runs-on: ubuntu-latest
+   # Job-level env-var
+    env:
+      ENVIRONMENT: staging
+    steps:
+        - name: print all env
+          
+          env:
+            version: 1.0.0
+
+          run: |
+
+            echo "App Name: $APP_NAME"
+            echo "Environment: $ENVIRONMENT"
+            echo "Version: $VERSION"
+
+        - name: Print GitHub context variables
+          run: |
+           echo "Commit SHA: $GITHUB_SHA"
+           echo "Triggered by: $GITHUB_ACTOR"  
