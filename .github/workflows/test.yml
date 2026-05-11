@@ -1,0 +1,27 @@
+name: python CI test
+on:
+    workflow_dispatch:
+    push:
+
+jobs:
+    run-script:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: checkout repo
+              uses: actions/checkout@v4
+
+            - name: setup python
+              uses: actions/setup-python@v5
+              with: 
+                python-version: "3.11"
+
+            - name: install dependencies
+              run: pip install -r requirment.txt
+
+            - name: make script executable
+              run: chmod +x app.py
+
+            - name: Run script
+              run: app.py
+
