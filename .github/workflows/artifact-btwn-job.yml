@@ -13,7 +13,7 @@ jobs:
             - name: Upload generated file
               uses: actions/upload-artifact@v4
               with:
-               name: my-generated-files  # The name shown in GitHub UI
+               name: job1 file   # The name shown in GitHub UI
                path: job1.txt   # Path to the file or directory
 
     job2: 
