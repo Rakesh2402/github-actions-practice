@@ -16,8 +16,8 @@ jobs:
               with: 
                 python-version: "3.11"
 
-            - name: install dependencies
-              run: pip install -r requirment.txt
+            #- name: install dependencies
+            #  run: pip install -r requirment.txt
 
             - name: make script executable
               run: chmod +x app.py
