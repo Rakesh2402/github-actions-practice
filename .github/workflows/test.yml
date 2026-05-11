@@ -23,5 +23,5 @@ jobs:
               run: chmod +x app.py
 
             - name: Run script
-              run: app.py
+              run: python app.py
 
