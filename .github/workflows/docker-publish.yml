@@ -14,4 +14,4 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build -t flask-prod-app:latest .
+          docker build -t flask-app:latest .
