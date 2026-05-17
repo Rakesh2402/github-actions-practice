@@ -1,37 +1,18 @@
-name: build docker image
+name: Docker Build
+
 on:
   push:
     branches:
       - main
 
 jobs:
-  docker-build:
+  docker:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Log in to Docker Hub
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-
-      - name: Set short SHA using slice
-        run: echo "SHORT_SHA=${GITHUB_SHA::7}" >> $GITHUB_ENV
-
-
-      - name: Build, tag & push to Docker Hub if pushed from main
-        if: github.ref_name == 'main'
-        uses: docker/build-push-action@v6
-        with:
-          context: .
-          push: true
-          tags: |
-            ${{ secrets.DOCKER_USERNAME }}/flask-prod-app:latest
-            ${{ secrets.DOCKERHUB_TOKEN }}/flask-prod-app:sha-${{ env.SHORT_SHA }}
-
-            
-
-      
+      - name: Build Docker image
+        run: |
+          docker build -t flask-prod-app .
